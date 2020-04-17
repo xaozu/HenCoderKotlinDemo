@@ -18,9 +18,9 @@ open class BaseViewHolder(var view: View) : ViewHolder(view) {
     private val viewHashMap: MutableMap<Int, View> = HashMap()
 
      fun <T : View?> getView(@IdRes id: Int): T? {
-         return viewHashMap[id]?.apply {
-             view.findViewById<T>(id)
-         } as T
+         val viewObj : View = view.findViewById<View>(id)
+         viewHashMap[id] = viewObj
+         return viewObj as T
 
     }
 
